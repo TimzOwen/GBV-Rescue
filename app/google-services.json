@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762965804775",
+    "project_id": "firenaselogin-1e8f5",
+    "storage_bucket": "firenaselogin-1e8f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762965804775:android:36086bda690dcf02298442",
+        "android_client_info": {
+          "package_name": "com.timzowen.firenaselogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762965804775-9345m08ag9ek5is1gvshmn75qhqatdrs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyiF1sBJaCBiUCal2g3AOzOxLPRCJYvKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762965804775-9345m08ag9ek5is1gvshmn75qhqatdrs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
