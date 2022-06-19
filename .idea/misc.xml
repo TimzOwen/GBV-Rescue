@@ -4,11 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_emergency.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/activity_group_therapy.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/activity_group_therapy.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_hospital_location.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.115625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/doctor_profile_layout.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/group_therapy_layout.xml" value="0.20104166666666667" />
       </map>
     </option>
   </component>
