@@ -45,7 +45,8 @@
             android:exported="true"/>
         <activity android:name="com.timzowen.idoctor.PrescriptionActivity"
             android:exported="true"/>
-
+        <activity android:name="com.timzowen.idoctor.LoginActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

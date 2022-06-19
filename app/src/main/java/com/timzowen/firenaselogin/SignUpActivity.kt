@@ -35,7 +35,7 @@ class SignUpActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Account created....", Toast.LENGTH_LONG).show()
 
-                //startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this,LoginActivity::class.java))
 
             }.addOnFailureListener {
                 Toast.makeText(this, "Failed, try again..", Toast.LENGTH_LONG).show()
