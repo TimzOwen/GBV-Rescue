@@ -1,14 +1,17 @@
 package com.timzowen.idoctor
 
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.DatePicker
 
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.timzowen.firenaselogin.databinding.ActivityBookAppointmentBinding
 import com.timzowen.idoctor.model.BookAppointment
+import java.util.*
 
 class BookAppointmentActivity : AppCompatActivity() {
 
@@ -19,7 +22,6 @@ class BookAppointmentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityBookAppointmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

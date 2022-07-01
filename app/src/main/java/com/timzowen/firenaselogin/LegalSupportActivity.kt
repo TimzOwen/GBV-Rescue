@@ -1,14 +1,19 @@
 package com.timzowen.idoctor
 
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.DatePicker
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.core.view.View
 import com.timzowen.firenaselogin.databinding.ActivityLegalSupportBinding
 import com.timzowen.idoctor.model.LegalCase
+import java.time.Month
+import java.util.*
 
 class LegalSupportActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLegalSupportBinding
@@ -22,6 +27,19 @@ class LegalSupportActivity : AppCompatActivity() {
         // use view binding to avoid boiler plate code collection
         binding = ActivityLegalSupportBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val today = Calendar.getInstance()  //get the date to pick
+
+        val year_reported = today.get(Calendar.YEAR)
+        val month_reported = today.get(Calendar.MONTH)
+        val day_reported = today.get(Calendar.DAY_OF_MONTH)
+
+        binding.etDateOccurrence.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+                binding.etDateOccurrence.text =  "Date" +  dayOfMonth + "/" + (month + 1) + "/" + year
+            }, year_reported,month_reported,day_reported)
+            datePickerDialog.show()
+        }
 
         binding.btnSubmitCase.setOnClickListener{
 
@@ -44,7 +62,7 @@ class LegalSupportActivity : AppCompatActivity() {
 
                 binding.etHospName.text.clear()
                 binding.etTypeOfCase.text.clear()
-                binding.etDateOccurrence.text.clear()
+
                 binding.etVictimInvolved.text.clear()
                 binding.etVictimInvolved.text.clear()
                 binding.etBriefDesc.text.clear()

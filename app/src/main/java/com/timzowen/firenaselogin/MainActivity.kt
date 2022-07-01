@@ -34,9 +34,7 @@ class MainActivity : AppCompatActivity() {
          binding.cardLocateMedication.setOnClickListener {
              startActivity(Intent(this,HospitalLocationActivity::class.java))
          }
-        binding.cardGroupTherapy.setOnClickListener {
-            startActivity(Intent(this,GroupTherapyActivity::class.java))
-        }
+
 
     }
 }
