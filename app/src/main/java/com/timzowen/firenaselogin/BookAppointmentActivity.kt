@@ -2,13 +2,18 @@ package com.timzowen.idoctor
 
 import android.app.DatePickerDialog
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.DatePicker
 
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.timzowen.firenaselogin.MainActivity
+import com.timzowen.firenaselogin.R
 import com.timzowen.firenaselogin.databinding.ActivityBookAppointmentBinding
 import com.timzowen.idoctor.model.BookAppointment
 import java.util.*
@@ -64,5 +69,20 @@ class BookAppointmentActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    // Menu inflater
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // item selection
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_profile -> startActivity(Intent(this, DoctorsProfileActivity::class.java))
+            R.id.menu_home -> startActivity(Intent(this, MainActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

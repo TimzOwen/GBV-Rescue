@@ -18,9 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirenaseLogin"
         tools:targetApi="31">
-        <activity
-            android:name=".GroupTherapyActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".GroupTherapyActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true" />
