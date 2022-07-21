@@ -13,9 +13,10 @@ class IDoctorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityIdoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
        binding.tbnBookTherapyDoctor.setOnClickListener {
            startActivity(Intent(this,BookAppointmentActivity::class.java))
        }

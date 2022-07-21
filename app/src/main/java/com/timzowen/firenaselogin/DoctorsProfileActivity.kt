@@ -24,9 +24,6 @@ class DoctorsProfileActivity : AppCompatActivity(), DoctorsProfileAdapter.onItem
     }
 
     override fun onItemClick(position: Int) {
-        //Toast to check array list size.
-        Toast.makeText(this, "You click on Doctor $position", Toast.LENGTH_SHORT).show()
-
         when(position){
             0 -> {
                 val doctorNameProfile = Intent(this,IDoctorActivity::class.java)
@@ -34,8 +31,27 @@ class DoctorsProfileActivity : AppCompatActivity(), DoctorsProfileAdapter.onItem
                 doctorNameProfile.putExtra("Quote",position)
                 startActivity(doctorNameProfile)
             }
-            1 -> Toast.makeText(this, "Dr. Allan kibet", Toast.LENGTH_SHORT).show()
-            2 -> Toast.makeText(this, "Dr. Marini Clement", Toast.LENGTH_SHORT).show()
+            1 ->{
+                val doctor3 = Intent(this,IDoctorActivity::class.java)
+                doctor3.putExtra("name",position)
+                doctor3.putExtra("quote",position)
+                startActivity(doctor3)
+            }
+            2 -> {
+                val doctor3 = Intent(this,IDoctorActivity::class.java)
+                doctor3.putExtra("name",position)
+                doctor3.putExtra("quote",position)
+                startActivity(doctor3)
+            }
+            3->{
+                val doctor3 = Intent(this,IDoctorActivity::class.java)
+                doctor3.putExtra("name",position)
+                doctor3.putExtra("quote",position)
+                startActivity(doctor3)
+            }
+            4 ->{
+
+            }
         }
     }
 }
