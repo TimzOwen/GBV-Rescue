@@ -109,26 +109,17 @@
         </LinearLayout>
 
     </RelativeLayout>
+
     <Button
-        android:layout_below="@id/relative_house_no"
-        android:layout_margin="30dp"
-        android:layout_centerHorizontal="true"
         android:id="@+id/tbn_bookTherapy_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/book_therapy"/>
-
-    <Button
-        android:id="@+id/tbn_bookCheckup_doctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tbn_bookTherapy_doctor"
+        android:layout_below="@id/relative_house_no"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
-        android:text="@string/book_check_up" />
-
+        android:text="@string/book_therapy" />
 
 </RelativeLayout>

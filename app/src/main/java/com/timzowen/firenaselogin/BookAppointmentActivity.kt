@@ -3,6 +3,7 @@ package com.timzowen.idoctor
 import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,7 +30,6 @@ class BookAppointmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBookAppointmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.btnBookAppointment.setOnClickListener {
 

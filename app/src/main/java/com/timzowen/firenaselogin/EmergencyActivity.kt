@@ -32,7 +32,7 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
             0 ->{
                 // pull the contact and extra to phone log
                val nairobiHospital = Intent(Intent.ACTION_CALL)
-                nairobiHospital.data = Uri.parse("tel" + "0722000000")
+                nairobiHospital.data = Uri.parse("tel" + "0767654345")
                 startActivity(nairobiHospital)
             }
             1 ->{
@@ -47,7 +47,7 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
 
             }
             3 -> {
-                val mediHeal = Intent(Intent.ACTION_CALL)
+                val mediHeal = Intent(Intent.ACTION_DIAL)
                 mediHeal.data = Uri.parse("tel" + "0724000000")
                 startActivity(mediHeal)
             }

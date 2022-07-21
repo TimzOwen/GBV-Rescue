@@ -37,6 +37,6 @@ class HospitalLocationActivity : AppCompatActivity() {
         progressDialog.show()
 
         mapview.settings.javaScriptEnabled = true
-        mapview.loadUrl("https://www.google.com/maps/@-1.262591,36.8127474,17z")
+        mapview.loadUrl("https://www.google.com/maps/d/u/0/viewer?hl=en_US&mid=1znF44mhGh4VX9zCVeGWvzAPZDDE&ll=-0.2683282548601752%2C36.08479030000002&z=13")
     }
 }

@@ -16,10 +16,6 @@ class IDoctorActivity : AppCompatActivity() {
 
         binding = ActivityIdoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-       binding.tbnBookCheckupDoctor.setOnClickListener {
-           startActivity(Intent(this,BookAppointmentActivity::class.java))
-       }
        binding.tbnBookTherapyDoctor.setOnClickListener {
            startActivity(Intent(this,BookAppointmentActivity::class.java))
        }
