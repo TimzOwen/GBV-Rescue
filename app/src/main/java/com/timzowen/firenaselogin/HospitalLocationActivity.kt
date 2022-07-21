@@ -5,7 +5,9 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.timzowen.firenaselogin.R
 
 class HospitalLocationActivity : AppCompatActivity() {
@@ -29,14 +31,24 @@ class HospitalLocationActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     private fun initView(){
         //find the ID to the map
-        val mapview : WebView = findViewById<WebView>(R.id.wv_mapview)
+        val mapview : WebView = findViewById(R.id.wv_mapview)
 
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Getting nearby hospitals.....")
         progressDialog.setCancelable(false)
         progressDialog.show()
 
+        mapview.webViewClient= object : WebViewClient(){
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                url : String
+            ): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
         mapview.settings.javaScriptEnabled = true
-        mapview.loadUrl("https://www.google.com/maps/d/u/0/viewer?hl=en_US&mid=1znF44mhGh4VX9zCVeGWvzAPZDDE&ll=-0.2683282548601752%2C36.08479030000002&z=13")
+        mapview.loadUrl("https://bit.ly/3OlRNlP")
+        mapview.settings.supportZoom()
     }
 }
