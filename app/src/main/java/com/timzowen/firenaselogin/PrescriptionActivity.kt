@@ -1,7 +1,9 @@
 package com.timzowen.idoctor
 
+import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -11,12 +13,18 @@ class PrescriptionActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityPrescriptionBinding
     private lateinit var db : DatabaseReference
+    private lateinit var progressDialog : ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityPrescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Handler().postDelayed({
+            progressDialog.dismiss()
+        },4000)
+
 
 
         binding.btnGetPrescription.setOnClickListener {
@@ -36,6 +44,11 @@ class PrescriptionActivity : AppCompatActivity() {
     }
 
     private fun sendPrescription(userName : String){
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Checking your prescription.....")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
 
         db = FirebaseDatabase.getInstance().getReference("Users")
         db.child(userName).get().addOnSuccessListener {
