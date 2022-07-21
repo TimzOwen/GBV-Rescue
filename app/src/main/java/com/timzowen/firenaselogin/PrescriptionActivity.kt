@@ -21,11 +21,6 @@ class PrescriptionActivity : AppCompatActivity() {
         binding = ActivityPrescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Handler().postDelayed({
-            progressDialog.dismiss()
-        },4000)
-
-
 
         binding.btnGetPrescription.setOnClickListener {
 
@@ -33,7 +28,16 @@ class PrescriptionActivity : AppCompatActivity() {
 
             if (userName.isNotEmpty()){
 
+                progressDialog = ProgressDialog(this)
+                progressDialog.setMessage("Checking your prescription.....")
+                progressDialog.setCancelable(false)
+                progressDialog.show()
+
                 sendPrescription(userName)
+
+                Handler().postDelayed({
+                    progressDialog.dismiss()
+                },4000)
 
             }else{
                 Toast.makeText(this, "Please enter Name....", Toast.LENGTH_SHORT).show()
@@ -44,11 +48,6 @@ class PrescriptionActivity : AppCompatActivity() {
     }
 
     private fun sendPrescription(userName : String){
-
-        progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Checking your prescription.....")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
 
         db = FirebaseDatabase.getInstance().getReference("Users")
         db.child(userName).get().addOnSuccessListener {
