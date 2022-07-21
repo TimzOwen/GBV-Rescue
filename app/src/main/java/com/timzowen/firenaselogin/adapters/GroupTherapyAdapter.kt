@@ -20,7 +20,12 @@ class GroupTherapyAdapter(private val groupTherapyList: ArrayList<GroupMeeting>)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        //get the current item in the recyclerView
+        val currentZoomLink = groupTherapyList[position]
+
+        holder.zoomTopic.text = currentZoomLink.zoomTopic
+        holder.zoomDoctor.text = currentZoomLink.zoomDoctor
+        holder.zoomDate.text = currentZoomLink.zoomDate
     }
 
     override fun getItemCount(): Int {
@@ -28,8 +33,8 @@ class GroupTherapyAdapter(private val groupTherapyList: ArrayList<GroupMeeting>)
     }
 
     class MyViewHolder (itemView : View): RecyclerView.ViewHolder(itemView){
-        val topic : TextView = itemView.findViewById(R.id.tv_topic)
-        val leadDoctor : Text = itemView.findViewById(R.id.tv_lead_doctor)
+        val zoomTopic : TextView = itemView.findViewById(R.id.tv_topic)
+        val zoomDoctor : TextView = itemView.findViewById(R.id.tv_lead_doctor)
         val zoomDate : TextView = itemView.findViewById(R.id.date_zoom_meeting)
     }
 
