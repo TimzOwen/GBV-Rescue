@@ -20,7 +20,7 @@ class CalenderActivity : AppCompatActivity() {
         }
 
         calenderBinding.btnBookTherapy.setOnClickListener {
-            startActivity(Intent(this, BookAppointmentActivity::class.java))
+            startActivity(Intent(this, DoctorsProfileActivity::class.java))
         }
 
         calenderBinding.btnCheckPrescription.setOnClickListener {
