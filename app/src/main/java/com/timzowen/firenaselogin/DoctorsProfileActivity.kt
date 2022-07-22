@@ -27,6 +27,9 @@ class DoctorsProfileActivity : AppCompatActivity() {
             R.drawable.doctor4,
             R.drawable.doctor5,
             R.drawable.group1,
+            R.drawable.group3,
+            R.drawable.doctor5,
+            R.drawable.group1,
             R.drawable.group3
         )
         doctorName = arrayOf(
@@ -36,13 +39,19 @@ class DoctorsProfileActivity : AppCompatActivity() {
                 "Dr. Julia",
                 "Dr. Esther",
                 "Dr. Irene",
-                "Dr. Kamau"
+                "Dr. Kamau",
+                "Dr. Kipkebut",
+                "Dr.Masese",
+                "Dr.Laura"
         )
         doctorQuote = arrayOf(
             "Health is welath",
             "Health is everything",
             "We cure God heals",
             "Therapy solves it",
+            "Health eating is all",
+            "We are family medicine",
+            "Let's talk about us",
             "Health eating is all",
             "We are family medicine",
             "Let's talk about us"

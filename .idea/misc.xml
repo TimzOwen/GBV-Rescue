@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10847628657921292" />
         <entry key="app/src/main/res/layout/activity_book_appointment.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/activity_calender.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_doctos_profile.xml" value="0.31197916666666664" />

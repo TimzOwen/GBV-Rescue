@@ -17,8 +17,8 @@ class IDoctorActivity : AppCompatActivity() {
 
         val bundle : Bundle?= intent.extras
         val docName  = bundle!!.getString("Name")
-        val docImage = bundle.getInt("profile")
-        val docQuote = bundle.getString("quote")
+        val docImage = bundle!!.getInt("profile")
+        val docQuote = bundle!!.getString("quote")
 
         binding.nameProfile.text = docName
         binding.ivDocProfileChat.setImageResource(docImage)
