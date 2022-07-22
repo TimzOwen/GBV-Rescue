@@ -1,6 +1,6 @@
 package com.timzowen.idoctor.adapters
 
-import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,54 +10,49 @@ import androidx.recyclerview.widget.RecyclerView
 import com.timzowen.firenaselogin.R
 import com.timzowen.idoctor.model.DoctorsProfile
 
-class DoctorsProfileAdapter (
-    private val context : Context,
-    private val mDoctorsList : List<DoctorsProfile>,
-    val listener: onItemClickListener) : RecyclerView.Adapter<DoctorsProfileAdapter.ItemViewHolder>(){
+class DoctorsProfileAdapter(private val newList : ArrayList<DoctorsProfile>)  : RecyclerView.Adapter<DoctorsProfileAdapter.MyViewHolder>(){
 
+    private lateinit var mListener : onItemClickListener
 
-    inner class ItemViewHolder(private val view : View) : RecyclerView.ViewHolder(view), View.OnClickListener{
-        val imageProfile : ImageView = itemView.findViewById(R.id.iv_doctor_profile)
-        val imageChatIcon : ImageView = itemView.findViewById(R.id.iv_chat_counsel_iconImage)
-        val tvDoctorName : TextView = itemView.findViewById(R.id.doctor_chat_userName)
-        val tvQuote : TextView = itemView.findViewById(R.id.tv_quote_chat_doctor)
-
-        init {
-            itemView.setOnClickListener(this)
-            }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-            if (position!=RecyclerView.NO_POSITION){
-                listener.onItemClick(position)
-            }
-        }
-
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorsProfileAdapter.ItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.doctor_profile_layout,parent,false)
-        return ItemViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        //get the current doctor profile and match to the layout
-        val currentDoctor = mDoctorsList[position]
-
-        holder.imageProfile.setImageResource(currentDoctor.imageProfile)
-        holder.imageChatIcon.setImageResource(R.drawable.ic_baseline_chat_bubble_24)
-        holder.tvDoctorName.text = currentDoctor.doctorName
-        holder.tvQuote.text = currentDoctor.quote
-    }
-
-    override fun getItemCount(): Int {
-        return mDoctorsList.size
-    }
-
-    //create an interface to listen to each click item
     interface onItemClickListener {
         fun onItemClick(position: Int)
     }
 
+    fun setonItemClickListener(listener : onItemClickListener){
+        mListener = listener
+    }
 
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.doctor_profile_layout,parent,false)
+
+        return MyViewHolder(itemView,mListener)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val currentDoc = newList[position]
+
+        holder.docImage.setImageResource(currentDoc.imageProfile)
+        holder.docName.text = currentDoc.doctorName
+        holder.docQuote.text = currentDoc.quote
+    }
+
+    override fun getItemCount(): Int {
+        return newList.size
+    }
+
+    class MyViewHolder(itemView : View, listener : onItemClickListener) : RecyclerView.ViewHolder(itemView){
+
+        val docImage : ImageView = itemView.findViewById(R.id.iv_doctor_profile)
+        val docName : TextView = itemView.findViewById(R.id.doctor_chat_userName)
+        val docQuote : TextView = itemView.findViewById(R.id.tv_quote_chat_doctor)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
+
+    }
 }
