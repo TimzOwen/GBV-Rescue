@@ -1,22 +1,25 @@
 package com.timzowen.firenaselogin
 
 import android.app.ProgressDialog
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.timzowen.firenaselogin.adapters.GroupTherapyAdapter
 import com.timzowen.firenaselogin.data.GroupMeeting
-import com.timzowen.firenaselogin.databinding.GrouptherapyLayoutBinding
 
-class GroupTherapyActivity : AppCompatActivity() {
+class GroupTherapyActivity : AppCompatActivity(), GroupTherapyAdapter.OnItemClickListener {
 
     private lateinit var dbRef : DatabaseReference
     private lateinit var groupRecyclerView : RecyclerView
     private lateinit var groupArrayList : ArrayList<GroupMeeting>
     private lateinit var progressDialog : ProgressDialog
+    private lateinit var groupTherapyAdapter: GroupTherapyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +37,6 @@ class GroupTherapyActivity : AppCompatActivity() {
             progressDialog.dismiss()
         },4000)
 
-
-
     }
     private fun getAllMeetings(){
         dbRef = FirebaseDatabase.getInstance().getReference("ZoomMeetings")
@@ -51,7 +52,7 @@ class GroupTherapyActivity : AppCompatActivity() {
                         val zoom = zoomSnapshot.getValue(GroupMeeting::class.java)
                         groupArrayList.add(zoom!!)
                     }
-                    groupRecyclerView.adapter = GroupTherapyAdapter(groupArrayList)
+                    groupRecyclerView.adapter = GroupTherapyAdapter(groupArrayList,this@GroupTherapyActivity)
                 }
             }
 
@@ -59,5 +60,11 @@ class GroupTherapyActivity : AppCompatActivity() {
                 //
             }
         })
+    }
+
+    override fun onItemClick(position: Int) {
+        val zoomIntent = Intent(Intent.ACTION_VIEW,
+        Uri.parse("https://us02web.zoom.us/meeting/83395241499?occurrence=1653498000000"))
+        startActivity(zoomIntent)
     }
 }
