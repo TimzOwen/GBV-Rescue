@@ -28,7 +28,7 @@
             android:exported="true">
         </activity>
         <activity
-            android:name="com.timzowen.idoctor.SignUpActivity"
+            android:name=".SignUpActivity"
             android:exported="true"/>
         <activity
             android:name="com.timzowen.idoctor.BookAppointmentActivity"
@@ -55,7 +55,7 @@
             android:name="com.timzowen.idoctor.PrescriptionActivity"
             android:exported="true" />
         <activity
-            android:name="com.timzowen.idoctor.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

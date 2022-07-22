@@ -1,16 +1,20 @@
-package com.timzowen.idoctor
+package com.timzowen.firenaselogin
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
+
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.timzowen.firenaselogin.databinding.ActivitySignUpBinding
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var progressDialog : ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +28,10 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Creating account....")
+        progressDialog.setCancelable(false)
+
         binding.btnCreateUserAccountf.setOnClickListener {
 
             val userEmail = binding.etSignupUserEmail.text.toString()
@@ -32,20 +40,34 @@ class SignUpActivity : AppCompatActivity() {
 
             //check if the fields are not empty
             if (userEmail.isNotEmpty() && password.isNotEmpty() && confirmPswd.isNotEmpty()) {
-                if (password == confirmPswd) {
-                    firebaseAuth.createUserWithEmailAndPassword(userEmail, password)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                // sign up user on success
-                                val intent = Intent(this, LoginActivity::class.java)
-                                startActivity(intent)
-                            } else {
-                                Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT)
-                                    .show()
+                progressDialog.show()
+                    if (password == confirmPswd) {
+                        firebaseAuth.createUserWithEmailAndPassword(userEmail, password)
+                            .addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                    progressDialog.dismiss()
+                                    // sign up user on success
+                                    val intent = Intent(this, LoginActivity::class.java)
+                                    startActivity(intent)
+                                } else {
+                                    progressDialog.dismiss()
+                                    Toast.makeText(this, "Correct the Errors..!", Toast.LENGTH_LONG)
+                                        .show()
+                                }
                             }
-                        }
-                } else {
-                    Toast.makeText(this, "field cannot be empty", Toast.LENGTH_SHORT).show()
+                    } else {
+                        progressDialog.dismiss()
+                        binding.etUsersignupPassword.error = "Password does not match!!"
+                        Toast.makeText(this, "Correct the Errors!! ", Toast.LENGTH_LONG).show()
+
+                    }
+            }else{
+                if(userEmail.isEmpty()){
+                    binding.etSignupUserEmail.error = "Enter email"
+                }else if(password.isEmpty()){
+                    binding.etUsersignupPassword.error = "Password cannot be empty"
+                }else if(confirmPswd.isEmpty()){
+                    binding.etSignupConfirmPswd.error = "Cannot be empty"
                 }
             }
 
