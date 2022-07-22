@@ -16,11 +16,11 @@ class CalenderActivity : AppCompatActivity() {
         setContentView(calenderBinding.root)
 
         calenderBinding.btnBookAppointment.setOnClickListener {
-            startActivity(Intent(this, IDoctorActivity::class.java))
+            startActivity(Intent(this, BookAppointmentActivity::class.java))
         }
 
         calenderBinding.btnBookTherapy.setOnClickListener {
-            startActivity(Intent(this, IDoctorActivity::class.java))
+            startActivity(Intent(this, BookAppointmentActivity::class.java))
         }
 
         calenderBinding.btnCheckPrescription.setOnClickListener {

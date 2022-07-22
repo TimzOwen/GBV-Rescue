@@ -3,30 +3,36 @@ package com.timzowen.idoctor
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import com.timzowen.firenaselogin.R
 import com.timzowen.firenaselogin.databinding.ActivityIdoctorBinding
+import org.w3c.dom.Text
 
 
 class IDoctorActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityIdoctorBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityIdoctorBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_idoctor)
+
+
+        val docProfile : ImageView = findViewById(R.id.iv_DocProfile_chat)
+        val docName : TextView = findViewById(R.id.name_profile)
+        val docQuote : TextView = findViewById(R.id.country_profile)
 
         val bundle : Bundle?= intent.extras
-        val docName  = bundle!!.getString("Name")
-        val docImage = bundle!!.getInt("profile")
-        val docQuote = bundle!!.getString("quote")
+        val bundleName  = bundle!!.getString("name")
+        val bundleImage = bundle.getInt("profile")
+        val bundleQuote = bundle.getString("quote")
 
-        binding.nameProfile.text = docName
-        binding.ivDocProfileChat.setImageResource(docImage)
-        binding.countryProfile.text = docQuote
+        docName.text = bundleName
+        docProfile.setImageResource(bundleImage)
+        docQuote.text = bundleQuote
 
-
-       binding.tbnBookTherapyDoctor.setOnClickListener {
-           startActivity(Intent(this,BookAppointmentActivity::class.java))
-       }
-    }
+        val btn : Button = findViewById(R.id.tbn_bookTherapy_doctor)
+        btn.setOnClickListener{
+            startActivity(Intent(this,BookAppointmentActivity::class.java))
+            }
+        }
 }

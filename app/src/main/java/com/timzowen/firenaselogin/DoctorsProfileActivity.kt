@@ -78,7 +78,7 @@ class DoctorsProfileActivity : AppCompatActivity() {
             override fun onItemClick(position: Int) {
                 //Toast.makeText(this@DoctorsProfileActivity, "clicked $position", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@DoctorsProfileActivity,IDoctorActivity::class.java)
-                intent.putExtra("Name",doctorArrayList[position].doctorName)
+                intent.putExtra("name",doctorArrayList[position].doctorName)
                 intent.putExtra("quote",doctorArrayList[position].quote)
                 intent.putExtra("profile",doctorArrayList[position].imageProfile)
                 startActivity(intent)
