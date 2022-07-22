@@ -94,4 +94,7 @@
     <string name="home">Home</string>
     <string name="sexual_health_awareness">Sexual Health Awareness</string>
     <string name="topic_option">Topic:</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="confirm_pasword">Confirm pasword</string>
 </resources>
