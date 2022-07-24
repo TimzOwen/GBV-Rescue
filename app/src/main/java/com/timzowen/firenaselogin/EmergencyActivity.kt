@@ -50,15 +50,68 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
     }
 
     override fun onItemClick(position: Int) {
-        if (position == 0){
-            callPhone()
-            Toast.makeText(this, "clicked $position", Toast.LENGTH_SHORT).show()
+        when(position){
+            0 -> {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0702020202"))
+                startActivity(intent)
+            }
+            1 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0703030303"))
+                startActivity(intent)
+            }
+            2 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0704040404"))
+                startActivity(intent)
+            }
+            3 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0705050505"))
+                startActivity(intent)
+            }
+            4 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0706060606"))
+                startActivity(intent)
+            }
+            5 -> {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0707070707"))
+                startActivity(intent)
+            }
+            6 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0708080808"))
+                startActivity(intent)
+            }
+            7 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0709090909"))
+                startActivity(intent)
+            }
+            8 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0710101010"))
+                startActivity(intent)
+            }
+            9 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0711111111"))
+                startActivity(intent)
+            }
+            10 -> {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "071212121212"))
+                startActivity(intent)
+            }
+            11 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07131313131313"))
+                startActivity(intent)
+            }
+            12 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07141414141414"))
+                startActivity(intent)
+            }
+            13 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07151515151515"))
+                startActivity(intent)
+            }
+            14 ->{
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "071616161616"))
+                startActivity(intent)
+            }
         }
-    }
-    private fun callPhone() {
-        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "1122334455"))
-        startActivity(intent)
-
     }
 
     private fun onClickRequestPermission(view: View) {
