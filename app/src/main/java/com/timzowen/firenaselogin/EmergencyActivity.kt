@@ -18,7 +18,7 @@ import com.timzowen.firenaselogin.databinding.ActivityEmergencyBinding
 import com.timzowen.idoctor.adapters.EmergencyAdapter
 import com.timzowen.idoctor.data.DataEmergency
 
-class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListener {
+class EmergencyActivity : AppCompatActivity(), EmergencyAdapter.onItemClickListener {
 
     private lateinit var binding: ActivityEmergencyBinding
 
@@ -45,29 +45,29 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
         val dataNumbers = DataEmergency().loadCalls()
 
         // map all the data in the adapter
-        recyclerviewEmergency.adapter = EmergencyAdapter(this,dataNumbers,this)
+        recyclerviewEmergency.adapter = EmergencyAdapter(this, dataNumbers, this)
         recyclerviewEmergency.hasFixedSize()
     }
 
     override fun onItemClick(position: Int) {
-        when(position){
+        when (position) {
             0 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0702020202"))
                 startActivity(intent)
             }
-            1 ->{
+            1 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0703030303"))
                 startActivity(intent)
             }
-            2 ->{
+            2 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0704040404"))
                 startActivity(intent)
             }
-            3 ->{
+            3 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0705050505"))
                 startActivity(intent)
             }
-            4 ->{
+            4 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0706060606"))
                 startActivity(intent)
             }
@@ -75,19 +75,19 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0707070707"))
                 startActivity(intent)
             }
-            6 ->{
+            6 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0708080808"))
                 startActivity(intent)
             }
-            7 ->{
+            7 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0709090909"))
                 startActivity(intent)
             }
-            8 ->{
+            8 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0710101010"))
                 startActivity(intent)
             }
-            9 ->{
+            9 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0711111111"))
                 startActivity(intent)
             }
@@ -95,20 +95,24 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "071212121212"))
                 startActivity(intent)
             }
-            11 ->{
+            11 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07131313131313"))
                 startActivity(intent)
             }
-            12 ->{
+            12 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07141414141414"))
                 startActivity(intent)
             }
-            13 ->{
+            13 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "07151515151515"))
                 startActivity(intent)
             }
-            14 ->{
+            14 -> {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "071616161616"))
+                startActivity(intent)
+            }
+            15 -> {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "0717171717"))
                 startActivity(intent)
             }
         }
@@ -120,7 +124,7 @@ class EmergencyActivity : AppCompatActivity(),EmergencyAdapter.onItemClickListen
                 this,
                 android.Manifest.permission.CALL_PHONE
             ) == PackageManager.PERMISSION_GRANTED -> {
-                 binding.recyclerEmergency.showSnackbar(
+                binding.recyclerEmergency.showSnackbar(
                     view,
                     getString(R.string.permission_granted),
                     Snackbar.LENGTH_INDEFINITE,
