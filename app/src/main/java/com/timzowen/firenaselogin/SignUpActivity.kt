@@ -4,12 +4,9 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Patterns
-
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.timzowen.firenaselogin.databinding.ActivitySignUpBinding
-import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding

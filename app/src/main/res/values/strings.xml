@@ -97,4 +97,7 @@
     <string name="enter_your_email">Enter your Email</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="confirm_pasword">Confirm pasword</string>
+    <string name="permission_required">Permission required</string>
+    <string name="ok">Ok</string>
+    <string name="permission_granted">Permission Granted</string>
 </resources>
